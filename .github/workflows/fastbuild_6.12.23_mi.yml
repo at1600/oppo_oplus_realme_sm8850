@@ -125,9 +125,9 @@ jobs:
           rm -f ./ccache &
           
           echo "正在克隆源码仓库..."
-          aria2c -s16 -x16 -k1M https://github.com/at1600/android_kernel_xiaomi_17_sm8850/archive/refs/heads/main.zip -o common.zip && 
+          aria2c -s16 -x16 -k1M https://github.com/at1600/android_kernel_xiaomi_sm88501/archive/refs/heads/lineage-23.2.zip -o common.zip && 
           unzip -q common.zip && 
-          mv "android_kernel_xiaomi_17_sm8850-main" common &&
+          mv "android_kernel_xiaomi_sm88501-lineage-23.2" common &&
           rm -rf common.zip &
           
           echo "正在克隆llvm-clang19工具链..." &&
@@ -299,7 +299,7 @@ jobs:
           elif [[ ${{ github.event.inputs.ksu_type }} == "resukisu" ]]; then
             echo "正在配置ReSukiSU..."
             curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/refs/heads/main/kernel/setup.sh" | bash -s main
-            echo 'CONFIG_KSU_FULL_NAME_FORMAT="%TAG_NAME%-%COMMIT_SHA%@cctv18"' >> ./common/arch/arm64/configs/gki_defconfig
+            echo 'CONFIG_KSU_FULL_NAME_FORMAT="%TAG_NAME%-%COMMIT_SHA%@xxx"' >> ./common/arch/arm64/configs/gki_defconfig
             cd ./KernelSU
             # 生成自定义版本号（基于提交计数）, 失败时使用 114514
             KSU_VERSION=$(expr $(git rev-list --count main) + 30700 2>/dev/null || echo 114514)
