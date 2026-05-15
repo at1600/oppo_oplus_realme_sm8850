@@ -1,4 +1,4 @@
-name: (自改米) 6.12.23 GKI内核快速构建
+name: (自改米) 5.4.281 GKI内核快速构建
 
 env:
   TZ: Asia/Shanghai
