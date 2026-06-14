@@ -134,9 +134,9 @@ jobs:
           rm -f ./ccache &
           
           echo "正在克隆源码仓库..."
-          aria2c -s16 -x16 -k1M https://github.com/at1600/android_gki_kernel_common/archive/refs/heads/at1600-patch-1.zip -o common.zip && 
+          aria2c -s16 -x16 -k1M https://github.com/at1600/android_gki_kernel_common/archive/refs/heads/6.12zdy.zip -o common.zip && 
           unzip -q common.zip && 
-          mv "android_gki_kernel_common-at1600-patch-1" common &&
+          mv "android_gki_kernel_common-6.12zdy" common &&
           rm -rf common.zip &
           
           echo "正在克隆llvm-clang19工具链..." &&
