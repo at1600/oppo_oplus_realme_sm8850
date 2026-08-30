@@ -130,9 +130,9 @@ jobs:
           rm -f ./ccache &
           
           echo "正在克隆源码仓库..."
-          aria2c -s16 -x16 -k1M https://github.com/at1600/android_gki_kernel_common/archive/refs/heads/6.12mg2.zip -o common.zip && 
+          aria2c -s16 -x16 -k1M https://github.com/at1600/xiaomi_gki_kernel_common/archive/refs/heads/main.zip -o common.zip && 
           unzip -q common.zip && 
-          mv "android_gki_kernel_common-6.12mg2" common &&
+          mv "xiaomi_gki_kernel_common-main" common &&
           rm -rf common.zip &
           
           echo "正在克隆llvm-clang19工具链..." &&
