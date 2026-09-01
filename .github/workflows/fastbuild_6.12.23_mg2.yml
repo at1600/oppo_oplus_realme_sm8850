@@ -132,7 +132,7 @@ jobs:
           echo "正在克隆源码仓库..."
           aria2c -s16 -x16 -k1M https://github.com/at1600/android_kernel_xiaomi_sm8850/archive/refs/heads/6.12mg.zip -o common.zip && 
           unzip -q common.zip && 
-          mv "android_kernel_xiaomi_sm8850-6.12mg2" common &&
+          mv "android_kernel_xiaomi_sm8850-6.12mg" common &&
           rm -rf common.zip &
           
           echo "正在克隆llvm-clang19工具链..." &&
