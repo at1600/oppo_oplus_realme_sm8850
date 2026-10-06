@@ -518,8 +518,8 @@ jobs:
               # echo "CONFIG_DRM_LINDROID_EVDI=y" >> ./arch/arm64/configs/gki_defconfig
             fi
           fi
-
- - name: 启用自定义小米特性
+          
+      - name: 启用自定义小米特性
         if: inputs.xiaomi_enable
         run: |
           echo "正在启用自定义小米特性"
