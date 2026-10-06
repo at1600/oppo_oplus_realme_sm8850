@@ -65,6 +65,11 @@ on:
         required: true
         type: boolean
         default: 'false'
+      xiaomi_enable:
+        description: '是否启用自定义小米特性'
+        required: true
+        type: boolean
+        default: 'true'
       adios_enable:
         description: '是否启用ADIOS IO调度器支持(提升IO读写性能)'
         required: true
@@ -130,9 +135,9 @@ jobs:
           rm -f ./ccache &
           
           echo "正在克隆源码仓库..."
-          aria2c -s16 -x16 -k1M https://github.com/at1600/xiaom_kernel_xiaomi_6.12/archive/refs/heads/main.zip -o common.zip && 
+          aria2c -s16 -x16 -k1M https://github.com/at1600/android_kernel_xiaomi_common/archive/refs/heads/10.1.zip -o common.zip && 
           unzip -q common.zip && 
-          mv "xiaom_kernel_xiaomi_6.12-main" common &&
+          mv "android_kernel_xiaomi_common-10.1" common &&
           rm -rf common.zip &
           
           echo "正在克隆llvm-clang19工具链..." &&
@@ -514,6 +519,29 @@ jobs:
             fi
           fi
 
+ - name: 启用自定义小米特性
+        if: inputs.xiaomi_enable
+        run: |
+          echo "正在启用自定义小米特性"
+          cd kernel_workspace
+          echo "CONFIG_MI_MEMCHECK=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_PROCESS_MEM=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_ASHMEM=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_CMA=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_FD_FENCE=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_FD_PIPE=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_FD_SOCKET=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_DMABUF=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_GPUMEM=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_SLAB=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_VMALLOC=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_MEMCHECK_STACK=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_BOOT_MONITOR=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_LZ4ASM=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_CFS_BANDWIDTH_MI=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_PERFMGR=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_DCVS_ARBI=y" >> ./common/arch/arm64/configs/gki_defconfig
+
       - name: 启用ADIOS IO调度器
         if: inputs.adios_enable
         run: |
@@ -883,3 +911,4 @@ jobs:
             --title "${{ env.TAG_HEAD }}-${{ env.FULL_VERSION }}" \
             --notes-file release_notes.md \
             release_zips/AnyKernel3_*.zip
+            
