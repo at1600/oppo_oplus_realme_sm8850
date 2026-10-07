@@ -544,8 +544,6 @@ jobs:
           echo "CONFIG_MI_POWER_SAVE=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_UNION_POWER=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MIGT=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_SCHED=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_TURBO_SCHED=y" >> ./common/arch/arm64/configs/gki_defconfig
 
       - name: 启用ADIOS IO调度器
         if: inputs.adios_enable
