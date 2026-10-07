@@ -135,9 +135,9 @@ jobs:
           rm -f ./ccache &
           
           echo "正在克隆源码仓库..."
-          aria2c -s16 -x16 -k1M https://github.com/at1600/android_kernel_xiaomi_common/archive/refs/heads/10.1.zip -o common.zip && 
+          aria2c -s16 -x16 -k1M https://github.com/at1600/android_kernel_xiaomi_common/archive/refs/heads/10.8.zip -o common.zip && 
           unzip -q common.zip && 
-          mv "android_kernel_xiaomi_common-10.1" common &&
+          mv "android_kernel_xiaomi_common-10.8" common &&
           rm -rf common.zip &
           
           echo "正在克隆llvm-clang19工具链..." &&
@@ -538,8 +538,8 @@ jobs:
           echo "CONFIG_MI_MEMCHECK_STACK=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_BOOT_MONITOR=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_LZ4ASM=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_CFS_BANDWIDTH_MI=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_PERFMGR=y" >> ./common/arch/arm64/configs/gki_defconfig
+          #echo "CONFIG_CFS_BANDWIDTH_MI=y" >> ./common/arch/arm64/configs/gki_defconfig
+          #echo "CONFIG_MI_PERFMGR=y" >> ./common/arch/arm64/configs/gki_defconfig
           #echo "CONFIG_MI_DCVS_ARBI=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_POWER_SAVE=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_UNION_POWER=y" >> ./common/arch/arm64/configs/gki_defconfig
