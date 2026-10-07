@@ -540,7 +540,7 @@ jobs:
           echo "CONFIG_LZ4ASM=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_CFS_BANDWIDTH_MI=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_PERFMGR=y" >> ./common/arch/arm64/configs/gki_defconfig
-          #echo "CONFIG_MI_DCVS_ARBI=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_DCVS_ARBI=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_POWER_SAVE=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_UNION_POWER=y" >> ./common/arch/arm64/configs/gki_defconfig
 
