@@ -524,23 +524,9 @@ jobs:
         run: |
           echo "正在启用自定义小米特性"
           cd kernel_workspace
-          echo "CONFIG_MI_MEMCHECK=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_PROCESS_MEM=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_ASHMEM=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_CMA=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_FD_FENCE=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_FD_PIPE=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_FD_SOCKET=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_DMABUF=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_GPUMEM=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_SLAB=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_VMALLOC=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_MEMCHECK_STACK=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_BOOT_MONITOR=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_TRACE=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_LZ4ASM=y" >> ./common/arch/arm64/configs/gki_defconfig
-          #echo "CONFIG_CFS_BANDWIDTH_MI=y" >> ./common/arch/arm64/configs/gki_defconfig
-          #echo "CONFIG_MI_PERFMGR=y" >> ./common/arch/arm64/configs/gki_defconfig
-          #echo "CONFIG_MI_DCVS_ARBI=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_DCVS_ARBI=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_POWER_SAVE=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_UNION_POWER=y" >> ./common/arch/arm64/configs/gki_defconfig
 
