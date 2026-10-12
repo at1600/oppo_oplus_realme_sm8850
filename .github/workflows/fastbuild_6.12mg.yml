@@ -527,6 +527,14 @@ jobs:
           echo "CONFIG_MI_DCVS_ARBI=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_POWER_SAVE=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_UNION_POWER=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_PACKAGE_RUNTIME_INFO=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MIGT=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MIGT_ENERGY_MODEL=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_PERF_HUMANTASK=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_PERF_CRITICAL_RT_TASK=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_SF_BINDER=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MIUI_ZRAM_MEMORY_TRACKING=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_FRAGMENTION=y" >> ./common/arch/arm64/configs/gki_defconfig
 
       - name: 启用ADIOS IO调度器
         if: inputs.adios_enable
