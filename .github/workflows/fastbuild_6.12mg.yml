@@ -535,7 +535,6 @@ jobs:
           echo "CONFIG_SF_BINDER=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MIUI_ZRAM_MEMORY_TRACKING=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_FRAGMENTION=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_MI_THERMAL_INTERFACE=y" >> ./common/arch/arm64/configs/gki_defconfig
 
       - name: 启用ADIOS IO调度器
         if: inputs.adios_enable
