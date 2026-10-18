@@ -538,7 +538,6 @@ jobs:
           #echo "CONFIG_SCHED_WALT=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_DEVFREQ_GOV_QCOM_GPUBW_MON=y" >> ./common/arch/arm64/configs/gki_defconfig
           #echo "CONFIG_DEVFREQ_GOV_QCOM_ADRENO_TZ=y" >> ./common/arch/arm64/configs/gki_defconfig
-          #echo "CONFIG_DEVFREQ_GOV_QCOM_ADRENO_RO=y" >> ./common/arch/arm64/configs/gki_defconfig
 
       - name: 启用ADIOS IO调度器
         if: inputs.adios_enable
