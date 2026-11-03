@@ -538,6 +538,7 @@ jobs:
           echo "CONFIG_SCHED_WALT=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_SCHED_CONSERVATIVE_BOOST_LPM_BIAS=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_SCHED_WALT_MIDPOINT=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MI_HYPSYS_NETLINK=y" >> ./common/arch/arm64/configs/gki_defconfig
 
       - name: 启用ADIOS IO调度器
         if: inputs.adios_enable
