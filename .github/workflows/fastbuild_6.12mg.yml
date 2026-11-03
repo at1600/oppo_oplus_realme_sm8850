@@ -539,6 +539,9 @@ jobs:
           echo "CONFIG_SCHED_CONSERVATIVE_BOOST_LPM_BIAS=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_SCHED_WALT_MIDPOINT=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_HYPSYS_NETLINK=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_XM_POWER_SUPPLY=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_NVMEM_SPMI_SDAM=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_NVMEM_QCOM_QFPROM=y" >> ./common/arch/arm64/configs/gki_defconfig
 
       - name: 启用ADIOS IO调度器
         if: inputs.adios_enable
