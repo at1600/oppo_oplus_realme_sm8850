@@ -540,6 +540,19 @@ jobs:
           echo "CONFIG_SCHED_WALT_MIDPOINT=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_HYPSYS_NETLINK=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_XM_POWER_SUPPLY=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QCOM_SPMI_ADC_TM5=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_USERSPACE_CDEV=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_CPU_HOTPLUG_COOLING_DEVICE=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_DDR_COOLING_DEVICE=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_CPUFREQ_CDEV=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_CPU_PAUSE_COOLING_DEVICE=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_DEVFREQ_CDEV=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_THERMAL_VENDOR_HOOK=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_DYNAMIC_HW_THERMAL_TRIP=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_THERMAL_LMH_STATS=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_BCL_SOC_DRIVER=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_BCL_PMIC5=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_QTI_QMI_SENSOR_V2=y" >> ./common/arch/arm64/configs/gki_defconfig
 
       - name: 启用ADIOS IO调度器
         if: inputs.adios_enable
