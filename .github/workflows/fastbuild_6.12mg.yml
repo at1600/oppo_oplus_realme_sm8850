@@ -539,7 +539,7 @@ jobs:
           echo "CONFIG_SCHED_CONSERVATIVE_BOOST_LPM_BIAS=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_SCHED_WALT_MIDPOINT=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MI_HYPSYS_NETLINK=y" >> ./common/arch/arm64/configs/gki_defconfig
-          # echo "CONFIG_XM_POWER_SUPPLY=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_XM_POWER_SUPPLY=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_QCOM_SPMI_ADC_TM5=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_QTI_USERSPACE_CDEV=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_QTI_CPU_HOTPLUG_COOLING_DEVICE=y" >> ./common/arch/arm64/configs/gki_defconfig
