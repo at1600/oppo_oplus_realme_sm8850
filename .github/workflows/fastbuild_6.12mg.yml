@@ -553,9 +553,9 @@ jobs:
           echo "CONFIG_QTI_BCL_SOC_DRIVER=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_QTI_BCL_PMIC5=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_QTI_QMI_SENSOR_V2=y" >> ./common/arch/arm64/configs/gki_defconfig
-          CONFIG_THERMAL=y
-          CONFIG_HWMON=y
-          CONFIG_THERMAL_HWMON=y
+          echo "CONFIG_THERMAL=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_HWMON=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_THERMAL_HWMON=y" >> ./common/arch/arm64/configs/gki_defconfig
 
       - name: 启用ADIOS IO调度器
         if: inputs.adios_enable
