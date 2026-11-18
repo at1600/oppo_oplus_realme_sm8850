@@ -308,7 +308,33 @@ jobs:
             cp ./susfs4ksu/kernel_patches/fs/* ./common/fs/
             cp ./susfs4ksu/kernel_patches/include/linux/* ./common/include/linux/
             cd ./common
-            patch -p1 < 50_add_susfs_in_gki-${{ env.ANDROID_VERSION }}-${{ env.KERNEL_VERSION }}.patch || true
+            patch -p1 -F 3 --no-backup-if-mismatch < 50_add_susfs_in_gki-${{ env.ANDROID_VERSION }}-${{ env.KERNEL_VERSION }}.patch || true
+
+            # 修复: susfs 补丁的 show_smap hunk 上下文是 vma_pages(), 本内核是
+            # vma_data_pages(), fuzz 把块错插进 __show_smap(void/无vma)。删光错位
+            # 副本, 只在真正的 show_smap() 里 mss={} 之后放一份。幂等。
+            python3 - <<'PY'
+            p = "fs/proc/task_mmu.c"
+            s = open(p).read()
+            block = (
+                "#ifdef CONFIG_KSU_SUSFS_SUS_MAP\n"
+                "\tif (vma->vm_file) {\n"
+                "\t\tif (SUSFS_IS_INODE_SUS_MAP(file_inode(vma->vm_file)))\n"
+                "\t\t\treturn 0;\n"
+                "\t}\n"
+                "#endif // #ifdef CONFIG_KSU_SUSFS_SUS_MAP\n"
+            )
+            while block in s:
+                s = s.replace(block, "")
+            s = s.replace(block.rstrip("\n") + "\n\n", "\n")
+            anchor = "\tstruct mem_size_stats mss = {};\n\n\tif (!vma_data_pages(vma))\n"
+            if anchor not in s:
+                raise SystemExit("show_smap anchor not found, 需手动核对 fs/proc/task_mmu.c")
+            s = s.replace(anchor,
+                          "\tstruct mem_size_stats mss = {};\n\n" + block + "\n" + anchor, 1)
+            open(p, "w").write(s)
+            print("susfs show_smap block relocated OK")
+            PY
             cd ..
           else
             echo "已选择无内置KernelSU模式，跳过susfs配置..."
